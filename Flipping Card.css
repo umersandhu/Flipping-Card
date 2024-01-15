@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+section{
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    background-color: #121321;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;/* for flipping card */
+}
+section::before{
+    content: "";/*lazmi*/
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    background: linear-gradient(90deg, #9c27b0,#f3f5f5);
+    border-radius: 50%;
+    transform: translate(-150px,-100px);/* for x and y direction position*/
+}
+section::after{
+    content: "";
+    position: absolute;
+    height: 240px;
+    width: 240px;
+    background: linear-gradient(90deg, #9c27b0,#f3f5f5);
+    border-radius: 50%;
+    transform: translate(150px,100px);
+}
+.container{
+    position: relative;
+    height: 225px;
+    width: 375px;
+    z-index: 100;
+    transition: 0.6s;
+    transform-style: preserve-3d;/* for flipping very imp */
+}
+.container:hover{
+    transform: rotateY(180deg); /* for flipping */
+}
+.container .card{
+    height: 100%;
+    width: 100%;
+    background:rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1) ;
+    border-radius: 25px;
+    box-shadow: 0 25px 45px rgba(0,0,0,0.25);
+    padding: 25px;
+    backdrop-filter: blur(25px);
+    /* not lazmi*/
+    position: absolute; /* for flipping card */
+    backface-visibility: hidden;/* for hidding flipping card */
+
+
+}
+.frontface .logo img{
+    width: 48px;
+}
+h5{
+    font-size: 16px;
+    font-weight: 400;
+}
+.frontface .chip{
+    width: 50px;
+}
+
+.frontface header,
+.frontface .logo{
+    display: flex;
+    align-items: center;
+}
+.frontface header{
+    justify-content: space-between;
+}
+.frontface .carddetail{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+h6{
+    font-size: 11px;
+    font-weight: 400;
+}
+h5.number{
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+h5.name{
+   margin-top: 20px;
+}
+.carddetail .expdate{
+    text-align: center;
+    font-size: 11px;
+    font-weight: 400;
+}
+.card.backface{
+ border: none;
+ padding: 15px 25px 25px 25px;
+ transform: rotateY(180deg); /* for flipping */
+
+}
+.card.backface h6{
+    font-size: 8px;
+}
+.card.backface .script{
+    height: 45px;
+    width: 100%;
+    background-color: black;
+    position:absolute;
+    top: 40px;
+    left: 0;
+}
+.card.backface .sign{
+    display: flex;
+    align-items:center;
+    justify-content:flex-end ;
+    margin-top: 80px;
+    background:repeating-linear-gradient(#fff , #fff 3px, #efefef 0px ,#efefef 9px);
+    width: 85%;
+    height: 40px;
+    border-radius: 6px;
+}
+.sign i{
+    color: black;
+    font-size: 12px;
+    padding: 4px 6px;
+    margin-right: -30px;
+    background-color: #fff;
+    border-radius: 4px;
+    z-index: -1;
+}
+.card.backface h5{
+    font-size: 8px;
+    margin-top: 15px;
+}
